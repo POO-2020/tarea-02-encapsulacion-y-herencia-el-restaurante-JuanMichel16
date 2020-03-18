@@ -42,4 +42,13 @@ export default class Pedido {
         });
         return `${fullCost}`
     }
+
+    getNumeroPedido(){
+        return this._numPedido
+    }
+
+    _esIgualA(pedido){
+        if(pedido.getNumeroPedido() == this._numPedido){ return true}
+        else {return false}
+    }
 }
