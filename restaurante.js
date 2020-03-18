@@ -28,4 +28,30 @@ export default class Restaurante {
             console.log(`${i + 1}. ${elemento.getResumen()}`)
         })
     }
+
+    buscarPedido(pedido){
+        let buscar = this.pedidos.find(encontarPedido => encontarPedido._esIgualA(pedido))
+        if(buscar == undefined){return null}
+        else {return buscar}
+    }
+
+    eliminarPedido(pedido){
+        let encontrar =  this.buscarPedido(pedido)
+        if(encontrar == null) return false
+        else {
+        let i = this.pedidos.indexOf(encontrar)
+        this.pedidos.splice(i,1)
+        return true
+        }
+    }
+
+    modificarPedido(pedido, nuevoPedido){
+        let encontrar =  this.buscarPedido(pedido)
+        if(encontrar == null) return false
+        else {
+        let i = this._pedidos.indexOf(encontrar)
+        this.pedidos[i] = nuevoPedido
+        return true
+        }
+    }
 }
